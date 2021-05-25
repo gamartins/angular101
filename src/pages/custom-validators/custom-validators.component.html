@@ -1,0 +1,20 @@
+<input id="meu-input" class="form-control" required >
+
+<h3>NgModel</h3>
+<div class="mb-3">
+  <label class="form-label">Email address</label>
+  <input class="form-control" type="email" [(ngModel)]="emailModel" #email="ngModel" defaultEmail>
+  <p *ngIf="emailModel && email?.errors?.invalidEmail">This is email is not valid</p>
+</div>
+
+<h3>FormControl</h3>
+<div class="mb-3">
+  <label class="form-label">Email address</label>
+  <input class="form-control" type="email" [formControl]="emailControl">
+  <p *ngIf="emailControl.value && emailControl.errors?.invalidEmail">This is email is not valid</p>
+</div>
+
+<h4>References</h4>
+<a href="https://indepth.dev/posts/1319/the-best-way-to-implement-custom-validators" target="_blank">
+  The best way to implement custom validators
+</a>

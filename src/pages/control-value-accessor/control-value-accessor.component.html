@@ -1,0 +1,29 @@
+<h1>Control Value Acessor</h1>
+
+<div class="mb-4">
+  <h3>NgModel</h3>
+  <app-slider-input [(ngModel)]="sliderModel" #slider="ngModel"></app-slider-input>
+  <div>value: {{ slider.value }}</div>
+  <div>disabled: {{ slider.disabled }}</div>
+  <div>valid: {{ slider.valid }}</div>
+</div>
+
+<div class="mb-4">
+  <h3>FormControl</h3>
+  <app-slider-input [formControl]="sliderControl"></app-slider-input>
+  <div>value: {{ sliderControl.value }}</div>
+  <div>disabled: {{ sliderControl.disabled }}</div>
+  <div>valid: {{ sliderControl.valid }}</div>
+</div>
+
+<h4>References</h4>
+<p>
+  <a href="https://indepth.dev/posts/1055/never-again-be-confused-when-implementing-controlvalueaccessor-in-angular-forms" target="_blank">
+    Never again be confused when implementing ControlValueAccessor in Angular forms
+  </a>
+</p>
+<p>
+  <a href="https://www.digitalocean.com/community/tutorials/angular-custom-form-control" target="_blank">
+    Using ControlValueAccessor to Create Custom Form Controls in Angular
+  </a>
+</p>
