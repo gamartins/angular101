@@ -1,0 +1,22 @@
+<h1 style="margin-bottom: 16px;" [ngStyle]="{ 'color': color }">
+  This is the parent component
+</h1>
+
+<div style="border: 1px dashed black; padding: 16px;">
+  <app-change-detection-child
+    [user]="user"
+    [color]="colorChild"
+  ></app-change-detection-child>
+</div>
+
+<button style="margin-top: 16px; display: block;" (click)="randomColorParent()">
+  Random color on parent
+</button>
+
+<button style="margin-top: 16px; display: block;" (click)="randomColorChild()">
+  Random color on child
+</button>
+
+<button style="margin-top: 16px; display: block;" (click)="randomUser()">
+  Random user on child
+</button>
