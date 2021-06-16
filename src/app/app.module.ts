@@ -10,10 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CustomValidatorsModule } from 'src/pages/custom-validators/custom-validators.module';
 import { ControlValueAccessorModule } from 'src/pages/control-value-accessor/control-value-accessor.module';
 import { ChangeDetectionModule } from 'src/pages/change-detection/change-detection.module';
+import { ChangeDetectorModule } from 'src/pages/change-detector/change-detector.module';
 
 import { CustomValidatorsComponent } from 'src/pages/custom-validators/custom-validators.component';
 import { ControlValueAccessorComponent } from 'src/pages/control-value-accessor/control-value-accessor.component';
 import { ChangeDetectionComponent } from 'src/pages/change-detection/change-detection.component';
+import { ChangeDetectorParentComponent } from 'src/pages/change-detector/change-detector-parent.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { ChangeDetectionComponent } from 'src/pages/change-detection/change-dete
     RouterModule.forRoot([
       { path: 'custom-validators', component: CustomValidatorsComponent },
       { path: 'control-value-acessor', component: ControlValueAccessorComponent },
+      { path: 'change-detector', component: ChangeDetectorParentComponent },
       { path: 'change-detection', component: ChangeDetectionComponent },
       { path: '**', component:  HomeComponent }
     ]),
     CustomValidatorsModule,
     ControlValueAccessorModule,
     ChangeDetectionModule,
+    ChangeDetectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
