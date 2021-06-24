@@ -10,7 +10,6 @@ export class ControlValueAccessorComponent implements OnInit {
   sliderControl: FormControl = new FormControl(0);
 
   ngOnInit(): void {
-    this.sliderControl.disable()
   }
   
 }

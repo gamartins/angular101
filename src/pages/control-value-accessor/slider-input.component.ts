@@ -1,17 +1,19 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-slider-input',
   template: `
     <div>
-      <label class="form-label" for="customRange">Example range</label>
+      <label class="form-label" for="customRange">
+        {{ label }}
+      </label>
       <input
         class="form-range"
-        id="customRange2"
+        id="customRange"
         type="range"
         [min]="min"
-        [max]="100"
+        [max]="max"
         [attr.disabled]="disabled ? '' : null"
         [formControl]="internalControl">
     </div>
@@ -23,18 +25,23 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   }]
 })
 export class SliderInputComponent implements ControlValueAccessor {
+  @Input() label = 'Example range';
   @Input() min = 0;
   @Input() max = 100;
   @Input() disabled = false;
 
   onChange = (val: unknown) => {};
   onTouched = () => {};
+  
+  internalControl = new FormControl(0);
 
-  internalControl = new FormControl();
+  constructor() {
+    this.internalControl.valueChanges.subscribe(val => this.onChange(val))
+  }
   
   writeValue(val: number): void {
-    this.internalControl.setValue(val);
     this.onChange(val);
+    this.internalControl.setValue(val)
   }
 
   registerOnChange(fn: any): void {
