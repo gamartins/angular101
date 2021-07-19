@@ -12,12 +12,14 @@ import { ControlValueAccessorModule } from 'src/pages/control-value-accessor/con
 import { ChangeDetectionModule } from 'src/pages/change-detection/change-detection.module';
 import { ChangeDetectorModule } from 'src/pages/change-detector/change-detector.module';
 import { DynamicComponentLoadingModule } from 'src/pages/dynamic-component-loading/dynamic-component-loading.module';
+import { CustomDirectivesModule } from 'src/pages/custom-directives/custom-directives.module';
 
 import { CustomValidatorsComponent } from 'src/pages/custom-validators/custom-validators.component';
 import { ControlValueAccessorComponent } from 'src/pages/control-value-accessor/control-value-accessor.component';
 import { ChangeDetectionComponent } from 'src/pages/change-detection/change-detection.component';
 import { ChangeDetectorParentComponent } from 'src/pages/change-detector/change-detector-parent.component';
 import { DynamicComponentLoadingComponent } from 'src/pages/dynamic-component-loading/dynamic-component-loading.component';
+import { CustomDirectivesComponent } from 'src/pages/custom-directives/custom-directives.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { DynamicComponentLoadingComponent } from 'src/pages/dynamic-component-lo
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      { path: 'custom-directives', component: CustomDirectivesComponent },
       { path: 'custom-validators', component: CustomValidatorsComponent },
       { path: 'control-value-acessor', component: ControlValueAccessorComponent },
       { path: 'change-detector', component: ChangeDetectorParentComponent },
@@ -38,7 +41,8 @@ import { DynamicComponentLoadingComponent } from 'src/pages/dynamic-component-lo
     CustomValidatorsModule,
     ControlValueAccessorModule,
     ChangeDetectionModule,
-    ChangeDetectorModule
+    ChangeDetectorModule,
+    CustomDirectivesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
