@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+
 import { DefaultEmailValidator } from "./custom-validators";
 import { CustomValidatorsComponent } from "./custom-validators.component";
 
@@ -13,8 +15,12 @@ import { CustomValidatorsComponent } from "./custom-validators.component";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forChild([
+      { path: '', component: CustomValidatorsComponent }
+    ]),
   ],
-  providers: [],
-  bootstrap: [CustomValidatorsComponent]
+  bootstrap: [
+    CustomValidatorsComponent,
+  ]
 })
 export class CustomValidatorsModule { }

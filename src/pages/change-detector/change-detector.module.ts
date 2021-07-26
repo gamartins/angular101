@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { ChangeDetectorParentComponent } from "./change-detector-parent.component";
 import { ChangeDetectorComponent } from "./change-detector.component";
 
@@ -12,6 +13,11 @@ import { ChangeDetectorComponent } from "./change-detector.component";
     ChangeDetectorComponent,
     ChangeDetectorParentComponent,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: ChangeDetectorParentComponent }
+    ]),
+  ],
 })
 export class ChangeDetectorModule { }
