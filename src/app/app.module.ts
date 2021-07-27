@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('src/pages/dynamic-component-loading/dynamic-component-loading.module').then(m => m.DynamicComponentLoadingModule)
   },
   {
+    path: 'route-guards',
+    loadChildren: () => import('src/pages/route-guards/route-guards.module').then(m => m.RouteGuardsModule),
+  },
+  {
     path: '**',
     component:  HomeComponent
   },
@@ -46,7 +50,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       routes,
-      { preloadingStrategy: PreloadAllModules }
+      // { preloadingStrategy: PreloadAllModules }
     ),
   ],
   providers: [],
