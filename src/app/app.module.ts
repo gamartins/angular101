@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('src/pages/route-guards/route-guards.module').then(m => m.RouteGuardsModule),
   },
   {
+    path: 'ng-directives-advanced',
+    loadChildren: () => import('src/pages/ng-directives-advanced/ng-directives-advanced.module').then(m => m.NgDirectivesAdvancedModule),
+  },
+  {
     path: '**',
     component:  HomeComponent
   },

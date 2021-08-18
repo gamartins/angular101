@@ -1,0 +1,53 @@
+<h3>the ng-template</h3>
+<div class="topic">
+  <!-- this dont work -->
+  <ng-template>
+    <button class="tab-button" (click)="login()">{{loginText}}</button>
+    <button class="tab-button" (click)="signUp()">{{signUpText}}</button>
+  </ng-template>
+
+  <!-- but this work -->
+  <div class="lessons-list" *ngIf="showContent else loading">
+    Look inside me...
+  </div>
+  
+  <ng-template #loading>
+    <div>I'm inside ng-template...</div>
+  </ng-template>
+  <hr>
+</div>
+
+<h3>the ng-container</h3>
+<div class="topic">
+  <!-- This wont compile -->
+  <!-- <div *ngIf="lessons" *ngFor="let lesson of lessons">
+    <div >{{ lesson | json}} </div>
+  </div> -->
+
+  <div *ngIf="songList">
+    <h4>this could be prettier</h4>
+    <div class="subtopic" *ngFor="let song of songList">
+      <div>{{ song | json }}</div>
+    </div>
+  </div>
+
+  <h4 style="margin-top: 8px;">perfect</h4>
+  <ng-container *ngIf="songList">
+    <div class="subtopic" *ngFor="let song of songList">
+      <div>{{ song | json }}</div>
+    </div>
+  </ng-container>
+  <hr>
+</div>
+
+<h3>the ngTemplateOutlet</h3>
+<app-ng-template-outlet-example
+  [songList]="songList"
+  [customTemplate]="optionTemplate"
+></app-ng-template-outlet-example>
+
+<ng-template #optionTemplate let-item let-idx="index">
+  <span [ngStyle]="{'color': !idx ? 'red' : null }">
+    {{ item.name }}, {{ item.artist }}
+  </span>
+</ng-template>
