@@ -40,6 +40,10 @@ const routes: Routes = [
     loadChildren: () => import('src/pages/ng-directives-advanced/ng-directives-advanced.module').then(m => m.NgDirectivesAdvancedModule),
   },
   {
+    path: 'dependency-injection',
+    loadChildren: () => import('src/pages/dependency-injection-example/dependency-injection-example.module').then(m => m.DependencyInjectionExampleModule),
+  },
+  {
     path: '**',
     component:  HomeComponent
   },
