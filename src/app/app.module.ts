@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from 'src/pages/home/home.component';
@@ -44,6 +45,10 @@ const routes: Routes = [
     loadChildren: () => import('src/pages/dependency-injection-example/dependency-injection-example.module').then(m => m.DependencyInjectionExampleModule),
   },
   {
+    path: 'interceptor-example',
+    loadChildren: () => import('src/pages/interceptor-example/interceptor-example.module').then(m => m.InterceptorExampleModule),
+  },
+  {
     path: '**',
     component:  HomeComponent
   },
@@ -55,6 +60,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
       routes,
