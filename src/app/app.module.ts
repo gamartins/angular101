@@ -49,6 +49,10 @@ const routes: Routes = [
     loadChildren: () => import('src/pages/interceptor-example/interceptor-example.module').then(m => m.InterceptorExampleModule),
   },
   {
+    path: 'example-aot',
+    loadChildren: () => import('src/pages/example-aot/example-aot.module').then(m => m.ExampleAotModule),
+  },
+  {
     path: '**',
     component:  HomeComponent
   },
